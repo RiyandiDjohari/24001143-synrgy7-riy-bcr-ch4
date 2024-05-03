@@ -15,13 +15,13 @@ class App {
     this.btnClear.onclick = () => {
       this.clearForm();
       this.clearNode();
-      this.countResult.innerHTML = ""
+      this.countResult.innerHTML = "";
     };
 
     this.btnSearch.onclick = () => {
-      let driverValue = this.filterByDriver.value == 'true';
+      let driverValue = this.filterByDriver.value == "true";
       let dateValue = this.filterByDate.value;
-      let newDate = new Date(dateValue)
+      let newDate = new Date(dateValue);
       let timeValue = this.filterByTime.value;
       let capacityValue = this.filterByCapacity.value;
 
@@ -35,15 +35,10 @@ class App {
         alert("Harap memilih tanggal yang akan datang");
         return;
       } else if (timeValue == "") {
-        alert ("Harap masukkan waktu");
+        alert("Harap masukkan waktu");
         return;
       } else {
-        this.getCarByFilter(
-          driverValue,
-          newDate.toLocaleDateString(),
-          parseInt(timeValue),
-          parseInt(capacityValue)
-        );
+        this.getCarByFilter(driverValue, newDate.toLocaleDateString(), parseInt(timeValue), parseInt(capacityValue));
       }
     };
   }
@@ -65,15 +60,14 @@ class App {
 
   async getCarByFilter(avail, date, time, capacity) {
     this.clearNode();
-    let data;
-  
-      data = await Binar.listCars(
-        (car) =>
-          car.available === true &&
-          (car.capacity >= capacity || 1) &&
-          car.availableAt.toLocaleDateString() >= date &&
-          car.availableAt.getHours() >= time
-      );
+    let data = await Binar.listCars(
+      (car) =>
+        car.available === avail &&
+        (car.capacity >= capacity || 1) &&
+        car.availableAt.toLocaleDateString() >= date &&
+        car.availableAt.getHours() >= time
+    );
+    console.log("data", data);
 
     Car.init(data);
 

@@ -9,6 +9,7 @@ class Car {
     id,
     plate,
     manufacture,
+    driverType,
     model,
     image,
     rentPerDay,
@@ -25,6 +26,7 @@ class Car {
     this.id = id;
     this.plate = plate;
     this.manufacture = manufacture;
+    this.driverType = driverType;
     this.model = model;
     this.image = image;
     this.rentPerDay = rentPerDay;
