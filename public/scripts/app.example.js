@@ -19,13 +19,13 @@ class App {
     };
 
     this.btnSearch.onclick = () => {
-      let driverValue = this.filterByDriver.value == "true";
+      let driverTypeValue = this.filterByDriver.value == 'true';
       let dateValue = this.filterByDate.value;
       let newDate = new Date(dateValue);
       let timeValue = this.filterByTime.value;
       let capacityValue = this.filterByCapacity.value;
 
-      if (driverValue == "") {
+      if (driverTypeValue == null) {
         alert("Harap masukkan tipe driver");
         return;
       } else if (dateValue == "") {
@@ -38,7 +38,7 @@ class App {
         alert("Harap masukkan waktu");
         return;
       } else {
-        this.getCarByFilter(driverValue, newDate.toLocaleDateString(), parseInt(timeValue), parseInt(capacityValue));
+        this.getCarByFilter(driverTypeValue, newDate.toLocaleDateString(), parseInt(timeValue), parseInt(capacityValue));
       }
     };
   }
@@ -52,22 +52,16 @@ class App {
     });
   };
 
-  async load() {
-    const cars = await Binar.listCars();
-    Car.init(cars);
-    this.run();
-  }
-
-  async getCarByFilter(avail, date, time, capacity) {
+  async getCarByFilter(driverType, date, time, capacity) {
     this.clearNode();
     let data = await Binar.listCars(
       (car) =>
-        car.available === avail &&
+        car.available === true &&
+        car.driverType === driverType &&
         (car.capacity >= capacity || 1) &&
         car.availableAt.toLocaleDateString() >= date &&
         car.availableAt.getHours() >= time
     );
-    console.log("data", data);
 
     Car.init(data);
 

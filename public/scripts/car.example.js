@@ -48,6 +48,7 @@ class Car {
       <p class="mt-4 fs-4">${this.model}/${this.manufacture}</p>
       <p class="fw-bold fs-6">Rp${this.rentPerDay}/hari</p>
       <p>${this.description}</p>
+      <p>Tipe Driver : ${this.driverType == true ? "Dengan Sopir" : "Tanpa Sopir"}</p>
       <div class="mt-auto">
         <p><i class="bi bi-people"></i> ${this.capacity} Orang</p>
         <p><i class="bi bi-people"></i> ${this.transmission}</p>

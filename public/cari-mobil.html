@@ -100,35 +100,35 @@
     <!-- Search Car Section -->
     <section id="search-car"> 
         <div class="container px-lg-5">
-          <div class="d-lg-flex p-4 rounded-3 shadow bg-white">
+          <div class="d-xl-flex p-4 rounded-3 shadow bg-white">
             <div class="flex-fill">
               <div class="row me-2">
-                <div class="col-sm-12 col-lg-3 mt-2">
+                <div class="col-sm-12 col-lg-6 col-xl-3 mt-2">
                   <p>Tipe Driver</p>
                   <select class="form-select " aria-label="Default select example" id="driver">
                     <option value="" hidden>Pilih Tipe Driver</option>
                     <option value="true">Dengan Sopir</option>
-                    <option value="true">Tanpa Sopir (Lepas Kunci)</option> 
+                    <option value="false">Tanpa Sopir (Lepas Kunci)</option> 
                   </select>
                 </div>
-                <div class="col-sm-12 col-lg-3 mt-2">
+                <div class="col-sm-12 col-lg-6 col-xl-3 mt-2">
                   <p>Tanggal</p>
                   <input type="date" class="form-control" placeholder="Pilih Tanggal" id="filterDate">
                 </div>
-                <div class="col-sm-12 col-lg-3 mt-2">
+                <div class="col-sm-12 col-lg-6 col-xl-3 mt-2">
                   <p>Waktu Jemput/Ambil</p>
                   <input type="time" class="form-control" placeholder="Pilih Tanggal" id="filterTime">
                 </div>
-                <div class="col-sm-12 col-lg-3 mt-2">
+                <div class="col-sm-12 col-lg-6 col-xl-3 mt-2">
                     <p>Jumlah Penumpang (optional)</p>
                     <input type="number" class="form-control" placeholder="Jumlah Penumpang" id="filterCapacity">
                 </div>
               </div>
             </div>
             <div class="align-self-center">
-                <div class="d-flex flex-column flex-xl-row justify-content-center gap-3 mt-3 mt-lg-0">
-                  <button class="btn btn-success" id="btn-search">Cari Mobil</button>
-                  <button class="btn btn-success" id="btn-clear">Clear Filter</button>
+                <div class="d-flex flex-column flex-xl-row  justify-content-center gap-3 mt-3 mt-xl-3">
+                  <button class="btn btn-success" id="btn-search">Search</button>
+                  <button class="btn btn-success" id="btn-clear">Clear</button>
                </div>
             </div>
           </div>
